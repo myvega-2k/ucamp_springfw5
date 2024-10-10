@@ -13,7 +13,7 @@
 	
 	
 	<!-- Hello 클래스를 Bean으로 설정 -->
-	<bean id="helo" class="myspring.di.xml.Hello">
+	<bean id="hello" class="myspring.di.xml.Hello" scope="singleton">
 		<!-- setter injection -->
 		<property name="name" value="스프링" />
 		<property name="printer" ref="strPrinter" />
