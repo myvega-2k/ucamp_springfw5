@@ -5,11 +5,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- ConsolePrinter 클래스를 Bean으로 설정 -->
+	<bean id="conPrinter" class="myspring.di.xml.ConsolePrinter" />
+	
 	<!-- StringPrinter 클래스를 Bean으로 설정 -->
 	<bean id="strPrinter" class="myspring.di.xml.StringPrinter" />
 	
-	<!-- ConsolePrinter 클래스를 Bean으로 설정 -->
-	<bean id="conPrinter" class="myspring.di.xml.ConsolePrinter" />
 	
 	<!-- Hello 클래스를 Bean으로 설정 -->
 	<bean id="helo" class="myspring.di.xml.Hello">
