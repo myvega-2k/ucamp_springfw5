@@ -12,10 +12,18 @@
 	<bean id="strPrinter" class="myspring.di.xml.StringPrinter" />
 	
 	
-	<!-- Hello 클래스를 Bean으로 설정 -->
+	<!-- Hello 클래스를 Bean으로 설정 setter injection -->
 	<bean id="hello" class="myspring.di.xml.Hello" scope="singleton">
 		<!-- setter injection -->
 		<property name="name" value="스프링" />
 		<property name="printer" ref="strPrinter" />
 	</bean>
+	
+	<!-- Hello 클래스를 Bean으로 설정 constructor injection -->
+	<bean id="helloC" class="myspring.di.xml.Hello">
+		<!-- constructor injection -->
+		<constructor-arg name="name" value="생성자" />
+		<constructor-arg name="printer" ref="conPrinter" />
+	</bean>
+	
 </beans>
