@@ -5,6 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- values.properties 파일의 위치를 설정하기 -->
+	<context:property-placeholder location="classpath:values.properties" />
+	
 	<!-- Component Auto Scanning 설정 -->
 	<context:component-scan base-package="myspring.di.annot" />
 	
@@ -18,14 +21,14 @@
 	<!-- Hello 클래스를 Bean으로 설정 setter injection -->
 	<bean id="hello" class="myspring.di.xml.Hello" scope="singleton">
 		<!-- setter injection -->
-		<property name="name" value="스프링" />
+		<property name="name" value="${myname1}" /> <!-- 스프링 -->
 		<property name="printer" ref="strPrinter" />
 	</bean>
 	
 	<!-- Hello 클래스를 Bean으로 설정 constructor injection -->
 	<bean id="helloC" class="myspring.di.xml.Hello">
 		<!-- constructor injection -->
-		<constructor-arg name="name" value="생성자" />
+		<constructor-arg name="name" value="${myname2}" /> <!-- 생성자 -->
 		<constructor-arg name="printer" ref="conPrinter" />
 	</bean>
 	
