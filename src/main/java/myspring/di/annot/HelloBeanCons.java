@@ -7,20 +7,22 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component("helloBean")
-public class HelloBean {
-	@Value("어노테이션")
-	String name;
+@Component
+public class HelloBeanCons {
 	
-	@Autowired
-	@Qualifier("stringPrinter")
+	String name;
 	PrinterBean printer;
 	
 	List<String> names;
 
-	public HelloBean() {
-		System.out.println(this.getClass().getName() + " 기본생성자 호출됨!!");
+	@Autowired
+	public HelloBeanCons(@Value("어노테이션생성자") String name, 
+			             @Qualifier("consolePrinter") PrinterBean printer) {
+		this.name = name;
+		this.printer = printer;
 	}
+
+
 
 	public List<String> getNames() {
 		return this.names;
