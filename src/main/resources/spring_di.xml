@@ -5,6 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- Component Auto Scanning 설정 -->
+	<context:component-scan base-package="myspring.di.annot" />
+	
 	<!-- ConsolePrinter 클래스를 Bean으로 설정 -->
 	<bean id="conPrinter" class="myspring.di.xml.ConsolePrinter" />
 	
