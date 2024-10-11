@@ -24,7 +24,7 @@ public class HelloBeanConfigTest {
 	
 	@Test
 	void helloConfig() {
-		assertEquals("어노테이션", helloBean.sayHello());
+		assertEquals("Hello 어노테이션", helloBean.sayHello());
 	}
 	
 	
