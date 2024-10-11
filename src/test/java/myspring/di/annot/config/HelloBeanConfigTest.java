@@ -8,6 +8,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import myspring.di.annot.HelloBean;
+import myspring.di.annot.HelloBeanCons;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,10 +23,17 @@ public class HelloBeanConfigTest {
 	@Autowired
 	HelloBean helloBean;
 	
+	@Autowired
+	HelloBeanCons helloBeanCons;
+	
 	@Test
 	void helloConfig() {
 		assertEquals("Hello 어노테이션", helloBean.sayHello());
 	}
 	
+	@Test
+	void helloConsConfig() {
+		assertEquals("Hello 어노테이션생성자", helloBeanCons.sayHello());
+	}
 	
 }

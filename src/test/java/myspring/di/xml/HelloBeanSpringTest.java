@@ -24,6 +24,8 @@ public class HelloBeanSpringTest {
 	@Test
 	void helloBean() {
 		System.out.println(hello.sayHello());
+		assertEquals("Hello 스프링", hello.sayHello());
+		
 		System.out.println(helloCons.sayHello());
 		assertEquals("Hello 생성자", helloCons.sayHello());
 		

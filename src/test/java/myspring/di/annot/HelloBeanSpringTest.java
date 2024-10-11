@@ -29,7 +29,7 @@ public class HelloBeanSpringTest {
 		helloCons.print();
 	}
 	
-	@Test @Disabled
+	@Test //@Disabled
 	void helloBean() {
 		assertEquals("Hello 어노테이션", helloBean.sayHello());
 		helloBean.print();
