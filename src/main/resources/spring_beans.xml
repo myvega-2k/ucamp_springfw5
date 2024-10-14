@@ -6,7 +6,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
+	<!-- Component Scanning -->
+	<context:component-scan base-package="myspring.**.dao,myspring.**.service" />
+	
 	<!-- values.properties 파일 정보 설정 -->
 	<context:property-placeholder location="classpath:values.properties" />
 	
@@ -24,5 +26,22 @@
 		<property name="dataSource" ref="dataSource" />
 		<!-- setConfigLocation(org.springframework.core.io.Resource configLocation) -->
 		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
+		<!-- void setMapperLocations(org.springframework.core.io.Resource... mapperLocations) -->
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:mybatis/*Mapper.xml</value>
+			</list>
+		</property>
 	</bean>
+	
+	<!-- SqlSession 클래스를 Spring Bean으로 설정하기 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	<!-- Mapper 인터페이스 스캐닝을 위한 설정하기 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+       <property name="basePackage" value="myspring.**.dao.mapper" />
+       <!-- optional unless there are multiple session factories defined -->
+       <property name="sqlSessionTemplateBeanName" value="sqlSession" />
+   </bean>
 </beans>
