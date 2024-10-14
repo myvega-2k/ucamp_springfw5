@@ -11,6 +11,11 @@
 	<context:property-placeholder location="classpath:values.properties" />
 	
 	<!-- HikariDataSource 클래스를 Spring Bean으로 설정하기 -->
-	
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+	  p:driverClassName="${db.driverClass}"
+	  p:jdbcUrl="${db.url}"
+	  p:username="${db.username}"
+	  p:password="${db.password}"
+	/>
 	
 </beans>
