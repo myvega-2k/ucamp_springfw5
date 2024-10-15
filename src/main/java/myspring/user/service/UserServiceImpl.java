@@ -19,6 +19,10 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserDao userdao;
 	
+	public UserServiceImpl() {
+		System.out.println(this.getClass().getName() + " 서비스 기본생성자 호출됨!!");
+	}
+	
 	public void setUserdao(UserDao userdao) {
 		this.userdao = userdao;
 	}

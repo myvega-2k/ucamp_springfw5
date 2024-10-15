@@ -44,14 +44,15 @@ public class MyBatisTest {
 	
 	@Test
 	void userDao() {
+		UserVO addUser = new UserVO("spring", "스프링", "여", "Seoul");
+		userDao.insert(addUser);		
+		
 		List<UserVO> userList = userDao.readAll();
 		//Iterable의 forEach(Consumer) 
 		//Consumer 의 추상메서드 void accept(T t)
-		//1. Anonymous InnerClass
-//		userList.forEach(new Consumer<T>() {
-//			
-//		});
-		
+		userList.forEach(user -> System.out.println(user));
+		System.out.println("Method Reference");
+		userList.forEach(System.out::println);
 		
 	}
 	
